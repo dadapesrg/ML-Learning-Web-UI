@@ -1,0 +1,1 @@
+This is Web user interface to the electricity demand energy forecasting model. It loads JSON data for multivariate dataset, sent it to the ML forecasting service and display the results on the web page.
