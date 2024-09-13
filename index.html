@@ -1,10 +1,9 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Upload JSON for ML Prediction</title>
-
     <style>
         body { font-family: Arial, sans-serif; padding: 20px; }
         .container { width: 50%; margin: auto; }
@@ -21,6 +20,8 @@
     <div class="container">
         <h1>Upload JSON File for ML Prediction</h1>
         <input type="file" id="fileInput" accept=".json"><br><br>
+    </div>
+    <div class="container-r">
         <button onclick="uploadFile()">Submit for Prediction</button>
         <h3>Prediction Result:</h3>
         <pre id="result">No result yet...</pre>
