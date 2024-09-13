@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . /app
 
 # Expose port 8585
-EXPOSE 8080
+EXPOSE 8585
 
 # Start a simple HTTP server that serves static files from /app
-CMD ["python", "-m", "http.server", "8080"]
+CMD ["python", "-m", "http.server", "8585"]
