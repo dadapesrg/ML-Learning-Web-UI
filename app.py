@@ -6,7 +6,7 @@ import json
 app = Flask(__name__)
 
 # Replace with your deployed model's Cloud Run URL
-ML_MODEL_URL = "https://electricity-demand-forecasting-1010694068842.us-central1.run.app"
+ML_MODEL_URL = "https://electricity-demand-forecasting-1010694068842.us-central1.run.app/predict"
 
 @app.route('/')
 def index():
@@ -45,5 +45,6 @@ def predict():
 
     return jsonify({"error": "Invalid file format. Only JSON files are allowed."}), 400
 
+# Run the Flask app. This will start the server, only for development only.  
 if __name__ == '__main__':
     app.run(debug=True)
