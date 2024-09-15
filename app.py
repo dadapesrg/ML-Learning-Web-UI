@@ -47,4 +47,5 @@ def predict():
 
 # Run the Flask app. This will start the server, only for development only.  
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True) # for development
+   #app.run(host='0.0.0.0', port=8585) # to be used for production
