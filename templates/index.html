@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Learning Prediction</title>
+</head>
+<body>
+    <h1>Upload JSON File for Prediction</h1>
+    <form id="upload-form" method="POST" enctype="multipart/form-data">
+        <label for="json_file">Choose JSON file:</label>
+        <input type="file" id="json_file" name="json_file" accept=".json"><br><br>
+        <button type="submit">Submit for Prediction</button>
+    </form>
+    
+    <h3>Prediction Result:</h3>
+    <pre id="prediction-result">No result yet...</pre>
+
+    <script>
+        document.getElementById('upload-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var formData = new FormData();
+            var jsonFile = document.getElementById('json_file').files[0];
+            formData.append('json_file', jsonFile);
+
+            fetch('/predict', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('prediction-result').textContent = JSON.stringify(data, null, 2);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('prediction-result').textContent = 'Error occurred: ' + error;
+            });
+        });
+    </script>
+</body>
+</html>
